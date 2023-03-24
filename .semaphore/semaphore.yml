@@ -8,11 +8,9 @@ blocks:
   - name: 'Block #1'
     task:
       jobs:
-        - name: 'Job #1'
+        - name: Pip
           commands:
             - checkout
-        - name: ''
-          commands: []
     dependencies: []
   - name: Test
     dependencies:
