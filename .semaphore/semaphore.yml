@@ -10,17 +10,18 @@ blocks:
       jobs:
         - name: Pip
           commands:
-            - sem-version python 3.10.7
+            - sem-version python 3.9
             - checkout
             - mkdir .pip_cache
             - cache restore
             - pip install --cache-dir .pip_cache -r requirements.txt
             - cache store
+      prologue:
+        commands:
+          - sem-version python 3.9
+          - checkout
+          - mkdir .pip_cache
+          - cache restore
+          - pip install --cache-dir .pip_cache -r requirements.txt
+          - cache store
     dependencies: []
-  - name: Test
-    dependencies:
-      - 'Block #1'
-    task:
-      jobs:
-        - name: Unit test
-          commands: []
